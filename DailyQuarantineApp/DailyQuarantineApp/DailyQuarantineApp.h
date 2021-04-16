@@ -18,6 +18,7 @@ private:
 private slots:
     void on_loggingButton_pressed();
 
+
 private:
     MainWindowApp m_mainFrame;
 };

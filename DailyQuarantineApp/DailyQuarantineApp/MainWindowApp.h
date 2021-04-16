@@ -13,4 +13,17 @@ public:
 
 private:
 	Ui::MainWindowApp ui;
+
+private slots:
+	void on_calendarButton_pressed();
+	void on_medicButton_pressed();
+	void on_covidButton_pressed();
+};
+
+enum class Pages
+{
+	Principal,
+	Calendar,
+	Medic,
+	Covid
 };
