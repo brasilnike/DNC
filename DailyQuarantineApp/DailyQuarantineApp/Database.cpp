@@ -1,6 +1,13 @@
 #include "Database.h"
+#include "Networking.h"
 
 #define SQL_RETURN_CODE_LEN 1000
+
+bool CheckNetworkConnection()
+{
+	Networking networking;
+	return (networking.networkConnection_QuickMode() || networking.networkConnection_AdvancedMode());
+}
 
 Database::Database()
 {
@@ -9,7 +16,14 @@ Database::Database()
 	m_sqlStmtHandle = NULL;
 	m_sqlEnvHandle = NULL;
 
-	connectToDatabase();
+	if (CheckNetworkConnection())
+	{
+		connectToDatabase();
+	}
+	else
+	{
+
+	}
 }
 
 void Database::connectToDatabase()
