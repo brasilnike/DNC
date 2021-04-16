@@ -26,3 +26,7 @@ void MainWindowApp::on_covidButton_pressed()
 	ui.stackedWidget->setCurrentIndex(int(Pages::Covid));
 }
 
+void MainWindowApp::on_calendarWidget_clicked()
+{
+
+}
