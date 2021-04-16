@@ -5,3 +5,9 @@ DailyQuarantineApp::DailyQuarantineApp(QWidget *parent)
 {
     ui.setupUi(this);
 }
+
+void DailyQuarantineApp::on_loggingButton_pressed()
+{
+    m_mainFrame.show();
+    this->hide();
+}

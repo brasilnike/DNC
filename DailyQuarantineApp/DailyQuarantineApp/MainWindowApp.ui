@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindowApp</class>
+ <widget class="QWidget" name="MainWindowApp">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1126</width>
+    <height>830</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindowApp</string>
+  </property>
+  <widget class="QStackedWidget" name="stackedWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>1111</width>
+     <height>811</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="page">
+    <widget class="QPushButton" name="medicButton">
+     <property name="geometry">
+      <rect>
+       <x>410</x>
+       <y>230</y>
+       <width>311</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Medic</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="calendarButton">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>230</y>
+       <width>311</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Calendar</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="covidButton">
+     <property name="geometry">
+      <rect>
+       <x>770</x>
+       <y>230</y>
+       <width>311</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Statistici covid</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_2"/>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

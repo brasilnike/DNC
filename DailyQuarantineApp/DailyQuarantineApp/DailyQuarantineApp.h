@@ -2,6 +2,8 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_DailyQuarantineApp.h"
+#include "MainWindowApp.h"
+
 
 class DailyQuarantineApp : public QMainWindow
 {
@@ -12,4 +14,10 @@ public:
 
 private:
     Ui::DailyQuarantineAppClass ui;
+
+private slots:
+    void on_loggingButton_pressed();
+
+private:
+    MainWindowApp m_mainFrame;
 };
