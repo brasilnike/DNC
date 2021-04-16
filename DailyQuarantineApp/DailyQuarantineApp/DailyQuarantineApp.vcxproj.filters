@@ -46,7 +46,7 @@
     <ClCompile Include="Database.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Notes.cpp">
+    <ClCompile Include="Networking.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -64,7 +64,7 @@
     <ClInclude Include="Database.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Notes.h">
+    <ClInclude Include="Networking.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
