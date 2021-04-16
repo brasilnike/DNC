@@ -93,6 +93,7 @@
   <ItemGroup>
     <ClCompile Include="Database.cpp" />
     <ClCompile Include="MainWindowApp.cpp" />
+    <ClCompile Include="Notes.cpp" />
     <QtRcc Include="DailyQuarantineApp.qrc" />
     <QtUic Include="DailyQuarantineApp.ui" />
     <QtMoc Include="DailyQuarantineApp.h" />
@@ -104,6 +105,7 @@
     <QtMoc Include="MainWindowApp.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Notes.h" />
     <ClInclude Include="Database.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

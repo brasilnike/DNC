@@ -4,6 +4,7 @@ MainWindowApp::MainWindowApp(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
+
 }
 
 MainWindowApp::~MainWindowApp()
@@ -28,5 +29,11 @@ void MainWindowApp::on_covidButton_pressed()
 
 void MainWindowApp::on_calendarWidget_clicked()
 {
+	ui.stackedWidget->setCurrentIndex(int(Pages::Notes));
+}
 
+void MainWindowApp::on_addNoteButton_pressed()
+{
+
+	ui.stackedWidget->setCurrentIndex(int(Pages::Calendar));
 }

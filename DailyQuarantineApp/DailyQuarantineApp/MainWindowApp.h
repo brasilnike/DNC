@@ -3,6 +3,9 @@
 #include <QWidget>
 #include <iostream>
 #include "ui_MainWindowApp.h"
+#include <string>
+#include "Notes.h"
+
 
 class MainWindowApp : public QWidget
 {
@@ -20,12 +23,17 @@ private slots:
 	void on_medicButton_pressed();
 	void on_covidButton_pressed();
 	void on_calendarWidget_clicked();
+	void on_addNoteButton_pressed();
+private:
+	Notes m_currentNote;
+	std::vector<Notes> notes;
 };
 
 enum class Pages
 {
 	Principal,
 	Calendar,
+	Notes,
 	Medic,
 	Covid
 };
