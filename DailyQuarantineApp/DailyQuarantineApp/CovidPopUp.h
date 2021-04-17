@@ -4,6 +4,12 @@
 #include "ui_CovidPopUp.h"
 #include "curl/curl.h"
 #include <iostream>
+#include <fstream>
+#include <qfile.h>
+#include <QJsonDocument>
+#include <QJsonValue>
+#include <QJsonArray>
+#include <QJsonObject>
 
 class CovidPopUp : public QWidget
 {
