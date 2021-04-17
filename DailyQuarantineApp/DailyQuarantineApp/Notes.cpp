@@ -4,7 +4,7 @@ Notes::Notes()
 {
 }
 
-Notes::Notes(const int userId, const int notesId, const std::string& noteText, const std::string& noteTitle, const QDate date)
+Notes::Notes(const int userId, const int notesId, const std::string& noteText, const std::string& noteTitle, const std::string& date)
 	: m_userId{ userId }, m_notesId{ notesId }, m_noteText{ noteText }, m_noteTitle{ noteTitle }, m_date{ date }
 {
 }
@@ -67,7 +67,7 @@ const std::string& Notes::getNoteTitle() const
 	return m_noteTitle;
 }
 
-const QDate Notes::getDate() const
+const std::string& Notes::getDate() const
 {
 	return m_date;
 }

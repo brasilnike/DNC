@@ -12,11 +12,11 @@ private:
 	int m_notesId;
 	std::string m_noteText;
 	std::string m_noteTitle;
-	QDate m_date;
+	std::string m_date;
 
 public:
 	Notes();
-	Notes(const int userId, const int notesId, const std::string& noteText, const std::string& noteTitle, const QDate date);
+	Notes(const int userId, const int notesId, const std::string& noteText, const std::string& noteTitle, const std::string& date);
 	Notes(const int userId);
 	Notes(const Notes& note);
 	~Notes();
@@ -32,6 +32,6 @@ public:
 	int getNotesId()const;
 	const std::string& getNoteText()const;
 	const std::string& getNoteTitle()const;
-	const QDate getDate()const;
+	const std::string& getDate()const;
 };
 

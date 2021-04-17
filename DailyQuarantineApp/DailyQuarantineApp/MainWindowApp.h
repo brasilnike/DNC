@@ -54,6 +54,6 @@ enum class Pages
 	Principal,
 	Calendar,
 	Notes,
-	Medic,
-	Covid
+	Covid,
+	Medic
 };

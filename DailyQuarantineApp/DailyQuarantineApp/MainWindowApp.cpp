@@ -51,7 +51,7 @@ void MainWindowApp::on_calendarWidget_clicked()
 void MainWindowApp::on_addNoteButton_pressed()
 {
 	int listSize = m_listNotes.size();
-	Notes aux(m_user.getId(), listSize, ui.notes->toPlainText().toStdString(), ui.title->toPlainText().toStdString(), QDate::currentDate());
+	Notes aux(m_user.getId(), listSize, ui.notes->toPlainText().toStdString(), ui.title->toPlainText().toStdString(), QDate::currentDate().toString().toStdString());
 	m_listNotes.push_back(aux);
 	ui.listWidget->addItem(QString::number(aux.getNotesId()) + " " + QString::fromStdString(aux.getNoteTitle()));
 	ui.stackedWidget->setCurrentIndex(int(Pages::Calendar));
@@ -73,20 +73,12 @@ void MainWindowApp::on_listWidget_itemDoubleClicked()
 			ui.listWidget->clearSelection();
 			break;
 		}
-		/*if (QString::compare(ui.listWidget->selectedItems()[0]->text(), note.getConcat())==0)
-		{
-			m_currentNote = note;
-		}
-		if (ui.listWidget->selectedItems()[0]->text() == note.getConcat())
-		{
-			m_currentNote = note;
-		}*/
 	}
 
 	m_noteSelected.getUi().noteIdText->setText(QString::fromStdString(std::to_string(m_currentNote.getNotesId())));
 	m_noteSelected.getUi().noteTitleText->setText(QString::fromStdString(m_currentNote.getNoteTitle()));
 	m_noteSelected.getUi().noteTextText->setText(QString::fromStdString(m_currentNote.getNoteText()));
-	m_noteSelected.getUi().noteDateText->setText(m_currentNote.getDate().toString("yyyy.MM.dd"));
+	m_noteSelected.getUi().noteDateText->setText(QString::fromStdString(m_currentNote.getDate()));
 
 }
 
@@ -95,7 +87,7 @@ void MainWindowApp::insertNote(const Notes& note)
 	int userId = note.getUserId();
 	std::string title = note.getNoteTitle();
 	std::string content= note.getNoteText();
-	std::string date = note.getDate().toString("yyyy.MM.dd").toUtf8().constData();
+	std::string date = note.getDate();
 	SQLRETURN retcode = SQLPrepare(m_sqlStmtHandle, (SQLWCHAR*)L"INSERT INTO Notes (user_id, notes_title, notes_content,notes_date) VALUES(?,?,?,?) ", SQL_NTS);
 	retcode = SQLBindParameter(m_sqlStmtHandle, 1, SQL_PARAM_INPUT, SQL_C_LONG, SQL_INTEGER, 0, 0, &userId, 0, NULL);
 	retcode = SQLBindParameter(m_sqlStmtHandle, 2, SQL_PARAM_INPUT, SQL_C_CHAR, SQL_VARCHAR, 50, 0, (SQLPOINTER)title.c_str(), title.length(), NULL);
@@ -136,10 +128,7 @@ void MainWindowApp::getAllNotes()
 			SQLGetData(m_sqlStmtHandle, 2, SQL_C_DEFAULT, &noteTitle, sizeof(noteTitle), NULL);
 			SQLGetData(m_sqlStmtHandle, 3, SQL_C_DEFAULT, &noteText, sizeof(noteText), NULL);
 			SQLGetData(m_sqlStmtHandle, 4, SQL_C_DEFAULT, &date, sizeof(date), NULL);
-			//Notes(const int userId, const int notesId, const QString noteText, const QString noteTitle, const QDate date);
-			QString dateQtStrigng = QString::fromStdString(date);
-			QDate dateQt = QDate::fromString(dateQtStrigng, "dd/MM/yyyy");
-			Notes note(m_user.getId(),notesId,noteText,noteTitle, dateQt);
+			Notes note(m_user.getId(),notesId,noteText,noteTitle, date);
 			m_listNotes.push_back(note);
 		}
 
