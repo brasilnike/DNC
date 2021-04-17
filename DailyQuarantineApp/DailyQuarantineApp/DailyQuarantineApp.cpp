@@ -15,9 +15,10 @@ void DailyQuarantineApp::on_loginButton_pressed()
 {
 	QString username = ui.username_login_edit->text();
 	QString password = ui.password_login_edit->text();
-    setUsername(username);
-    setPassword(password);
-    verifyUserAccount();
+	m_mainFrame.show();
+    //setUsername(username);
+    //setPassword(password);
+    //verifyUserAccount();
 }
 
 void DailyQuarantineApp::on_registrationButton_pressed()
@@ -30,7 +31,7 @@ void DailyQuarantineApp::showEvent(QShowEvent* ev)
 	QMainWindow::showEvent(ev);
 	//Verify if is possible to connect to the database. Show a warning message if not possbile and exit the application.
 	Networking networking;
-	if (!networking.networkConnection_QuickMode())
+	/*if (!networking.networkConnection_QuickMode())
 	{
 		if (!networking.networkConnection_AdvancedMode())
 		{
@@ -42,7 +43,7 @@ void DailyQuarantineApp::showEvent(QShowEvent* ev)
 	{
 		QMessageBox::warning(this, "Eroare de conexiune", "A aparut o eroare privind conectarea la baza de date. Va rugam sa reveniti mai tarziu");
 		exit(EXIT_FAILURE);
-	}
+	}*/
 }
 
 void DailyQuarantineApp::setUsername(const QString& username)

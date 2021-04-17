@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="MainPage">
     <widget class="QPushButton" name="medicButton">
@@ -77,17 +77,27 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="textEdit">
      <property name="geometry">
       <rect>
-       <x>100</x>
-       <y>220</y>
-       <width>131</width>
-       <height>141</height>
+       <x>320</x>
+       <y>480</y>
+       <width>55</width>
+       <height>16</height>
       </rect>
      </property>
      <property name="text">
-      <string>Gol</string>
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="listWidget">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>11</y>
+       <width>271</width>
+       <height>771</height>
+      </rect>
      </property>
     </widget>
    </widget>

@@ -2,8 +2,10 @@
 #include <iostream>
 #include <qstring.h>
 #include <qdatetime.h>
+#include <QListWidget>
+#include <QStringListModel>
 
-class Notes
+class Notes : QListWidgetItem
 {
 private:
 	int m_userId;
@@ -14,12 +16,13 @@ private:
 
 public:
 	Notes();
+	Notes(const int userId, const int notesId, const QString noteText, const QString noteTitle, const QDate date);
 	Notes(const int userId);
 	Notes(const Notes& note);
 	~Notes();
 
-	void setUserId(int id);
-	void setNotesId(const int& email);
+	void setUserId(const int& id);
+	void setNotesId(const int& notesId);
 	void setNoteText(const QString& noteText);
 	void setNoteTitle(const QString& noteTitle);
 
@@ -27,5 +30,6 @@ public:
 	int getNotesId()const;
 	QString getNoteText()const;
 	QString getNoteTitle()const;
+	QDate getDate()const;
 };
 

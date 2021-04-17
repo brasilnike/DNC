@@ -4,6 +4,12 @@ Notes::Notes()
 {
 }
 
+Notes::Notes(const int userId, const int notesId, const QString noteText, const QString noteTitle, const QDate date) 
+	: m_userId{ userId }, m_notesId{ notesId }, m_noteText{ noteText }, m_noteTitle{ noteTitle }, m_date{ date }
+{
+
+}
+
 Notes::Notes(const int userId)
 {
 	m_userId = userId;
@@ -20,4 +26,49 @@ Notes::Notes(const Notes& note)
 
 Notes::~Notes()
 {
+}
+
+void Notes::setUserId(const int& id)
+{
+	m_userId = id;
+}
+
+void Notes::setNotesId(const int& notesId)
+{
+	m_notesId = notesId;
+}
+
+void Notes::setNoteText(const QString& noteText)
+{
+	m_noteText = noteText;
+}
+
+void Notes::setNoteTitle(const QString& noteTitle)
+{
+	m_noteTitle = noteTitle;
+}
+
+int Notes::getUserId() const
+{
+	return m_userId;
+}
+
+int Notes::getNotesId() const
+{
+	return m_notesId;
+}
+
+QString Notes::getNoteText() const
+{
+	return m_noteText;
+}
+
+QString Notes::getNoteTitle() const
+{
+	return m_noteTitle;
+}
+
+QDate Notes::getDate() const
+{
+	return m_date;
 }

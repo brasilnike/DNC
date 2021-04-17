@@ -5,7 +5,8 @@
 #include "ui_MainWindowApp.h"
 #include <string>
 #include "Notes.h"
-
+#include <QListWidget>
+#include <QStringListModel>
 
 class MainWindowApp : public QWidget
 {
@@ -26,7 +27,7 @@ private slots:
 	void on_addNoteButton_pressed();
 private:
 	Notes m_currentNote;
-	std::vector<Notes> notes;
+	std::vector<Notes> m_listNotes;
 };
 
 enum class Pages

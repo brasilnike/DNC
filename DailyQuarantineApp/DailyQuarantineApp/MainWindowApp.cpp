@@ -4,7 +4,14 @@ MainWindowApp::MainWindowApp(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
+	Notes aux(0, 0, "Ok", "Titlu", QDate::currentDate());
+	m_listNotes.push_back(aux);
+	m_listNotes.push_back(aux);
 
+	for (Notes note : m_listNotes)
+	{
+		ui.listWidget->addItem(QString::number(note.getNotesId()) + " " + QString(note.getNoteTitle()));
+	}
 }
 
 MainWindowApp::~MainWindowApp()
@@ -34,6 +41,8 @@ void MainWindowApp::on_calendarWidget_clicked()
 
 void MainWindowApp::on_addNoteButton_pressed()
 {
-
+	Notes aux(0, 0, ui.notes->toPlainText(), ui.title->toPlainText(), QDate::currentDate());
+	m_listNotes.push_back(aux);
+	ui.listWidget->addItem(QString::number(aux.getNotesId()) + " " + QString(aux.getNoteTitle()));
 	ui.stackedWidget->setCurrentIndex(int(Pages::Calendar));
 }
