@@ -9,7 +9,7 @@ DailyQuarantineApp::DailyQuarantineApp(QWidget *parent)
     : QMainWindow(parent)
 {
     ui.setupUi(this);
-
+	this->hide();
 	m_treeGameFrame.show();
 }
 

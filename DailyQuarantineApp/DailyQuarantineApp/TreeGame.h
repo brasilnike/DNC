@@ -2,6 +2,13 @@
 
 #include <QWidget>
 #include "ui_TreeGame.h"
+#include <QMessageBox>
+#include <QWidget>
+#include <QPushButton>
+#include <QEvent>
+#include <QMouseEvent>
+#include <QDebug>
+#include <qstackedwidget.h>
 
 class TreeGame : public QWidget
 {
@@ -13,4 +20,11 @@ public:
 
 private:
 	Ui::TreeGame ui;
+
+protected:
+	bool eventFilter(QObject* watched, QEvent* event);
+
+private:
+	void setupUI();
+	//QStackedWidget* stackedWidget;
 };
