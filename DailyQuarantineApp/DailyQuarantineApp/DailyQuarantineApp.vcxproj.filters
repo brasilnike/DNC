@@ -61,6 +61,9 @@
     <ClCompile Include="NoteSelected.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CovidPopUp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MainWindowApp.h">
@@ -72,6 +75,9 @@
     <QtMoc Include="NoteSelected.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="CovidPopUp.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="MainWindowApp.ui">
@@ -81,6 +87,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="NoteSelected.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="CovidPopUp.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

@@ -62,7 +62,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Dependencies\CKMAIL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Dependencies\CKMAIL\include;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)\Dependencies\CKMAIL\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -75,7 +75,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)\Dependencies\CKMAIL\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Dependencies\CKMAIL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Dependencies\CKMAIL\include;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
@@ -105,6 +105,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CovidPopUp.cpp" />
     <ClCompile Include="Database.cpp" />
     <ClCompile Include="Email.cpp" />
     <ClCompile Include="MainWindowApp.cpp" />
@@ -113,6 +114,7 @@
     <ClCompile Include="NoteSelected.cpp" />
     <ClCompile Include="test.cpp" />
     <QtRcc Include="DailyQuarantineApp.qrc" />
+    <QtUic Include="CovidPopUp.ui" />
     <QtUic Include="DailyQuarantineApp.ui" />
     <QtMoc Include="DailyQuarantineApp.h" />
     <ClCompile Include="DailyQuarantineApp.cpp" />
@@ -125,6 +127,7 @@
     <QtMoc Include="MainWindowApp.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="CovidPopUp.h" />
     <ClInclude Include="Database.h" />
     <ClInclude Include="Email.h" />
     <ClInclude Include="Networking.h" />

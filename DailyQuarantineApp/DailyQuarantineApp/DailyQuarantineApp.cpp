@@ -16,6 +16,7 @@ void DailyQuarantineApp::on_loginButton_pressed()
 	QString username = ui.username_login_edit->text();
 	QString password = ui.password_login_edit->text();
 	m_mainFrame.show();
+	m_covidFrame.show();
 	//m_test.show();
     //setUsername(username);
     //setPassword(password);

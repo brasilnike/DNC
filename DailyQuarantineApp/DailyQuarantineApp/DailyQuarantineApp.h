@@ -5,7 +5,7 @@
 #include "MainWindowApp.h"
 #include "Database.h"
 #include "test.h"
-
+#include "CovidPopUp.h"
 
 class DailyQuarantineApp : public QMainWindow
 {
@@ -19,6 +19,7 @@ private:
     QString m_username;
     QString m_password;
     Database database;
+    CovidPopUp m_covidFrame;
 
 protected:
     void showEvent(QShowEvent* ev);
