@@ -46,3 +46,35 @@ void MainWindowApp::on_addNoteButton_pressed()
 	ui.listWidget->addItem(QString::number(aux.getNotesId()) + " " + QString(aux.getNoteTitle()));
 	ui.stackedWidget->setCurrentIndex(int(Pages::Calendar));
 }
+
+void MainWindowApp::on_listWidget_itemDoubleClicked()
+{
+	m_noteSelected.show();
+	for (Notes note : m_listNotes)
+	{
+		QString s1 = ui.listWidget->selectedItems()[0]->text();
+		QString s2 = QString::number(note.getNotesId());
+		s2.append(" ");
+		s2.append(note.getNoteTitle());
+		if (QString::compare(s1, s2) == 0)
+		{
+			m_currentNote = note;
+			ui.listWidget->clearSelection();
+			break;
+		}
+		/*if (QString::compare(ui.listWidget->selectedItems()[0]->text(), note.getConcat())==0)
+		{
+			m_currentNote = note;
+		}
+		if (ui.listWidget->selectedItems()[0]->text() == note.getConcat())
+		{
+			m_currentNote = note;
+		}*/
+	}
+
+	m_noteSelected.getUi().noteIdText->setText(QString(m_currentNote.getNotesId()));
+	m_noteSelected.getUi().noteTitleText->setText(QString(m_currentNote.getNoteTitle()));
+	m_noteSelected.getUi().noteTextText->setText(QString(m_currentNote.getNoteText()));
+	m_noteSelected.getUi().noteDateText->setText(m_currentNote.getDate().toString("yyyy.MM.dd"));
+
+}

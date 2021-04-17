@@ -21,6 +21,8 @@ public:
 	Notes(const Notes& note);
 	~Notes();
 
+	Notes& operator=(const Notes& note);
+
 	void setUserId(const int& id);
 	void setNotesId(const int& notesId);
 	void setNoteText(const QString& noteText);

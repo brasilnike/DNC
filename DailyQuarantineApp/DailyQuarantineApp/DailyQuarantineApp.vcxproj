@@ -69,6 +69,15 @@
       <AdditionalDependencies>ws2_32.lib;dnsapi.lib;crypt32.lib;ChilkatDbg_x64.lib;ChilkatDbgDll_x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Link>
+      <AdditionalDependencies>ws2_32.lib;dnsapi.lib;crypt32.lib;ChilkatDbg_x64.lib;ChilkatDbgDll_x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\Dependencies\CKMAIL\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Dependencies\CKMAIL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
@@ -101,6 +110,7 @@
     <ClCompile Include="MainWindowApp.cpp" />
     <ClCompile Include="Networking.cpp" />
     <ClCompile Include="Notes.cpp" />
+    <ClCompile Include="NoteSelected.cpp" />
     <ClCompile Include="test.cpp" />
     <QtRcc Include="DailyQuarantineApp.qrc" />
     <QtUic Include="DailyQuarantineApp.ui" />
@@ -108,6 +118,7 @@
     <ClCompile Include="DailyQuarantineApp.cpp" />
     <ClCompile Include="main.cpp" />
     <QtUic Include="MainWindowApp.ui" />
+    <QtUic Include="NoteSelected.ui" />
     <QtUic Include="test.ui" />
   </ItemGroup>
   <ItemGroup>
@@ -118,6 +129,7 @@
     <ClInclude Include="Email.h" />
     <ClInclude Include="Networking.h" />
     <ClInclude Include="Notes.h" />
+    <QtMoc Include="NoteSelected.h" />
     <QtMoc Include="test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
