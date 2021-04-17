@@ -6,6 +6,7 @@
 #include "Database.h"
 #include "test.h"
 #include "CovidPopUp.h"
+#include "User.h"
 
 class DailyQuarantineApp : public QMainWindow
 {
@@ -27,17 +28,21 @@ protected:
 private slots:
     void on_loginButton_pressed();
     void on_registrationButton_pressed();
+    void on_signUpButton_pressed();
 
 
 private:
     MainWindowApp m_mainFrame;
     test m_test;
+    User m_user;
 
 private:
 	void setUsername(const QString& username);
 	void setPassword(const QString& password);
 	void verifyUserAccount();
-	
+    bool validateFields(const std::string& username, const std::string& password, const std::string& email);
+    void updateUserTable(const::std::string& username, const std::string& password, const std::string& email);
+
 	QString getUsername()const;
 	QString getPassword()const;
 };

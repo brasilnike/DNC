@@ -181,6 +181,15 @@ QScrollBar::add-line:horizontal {
           </property>
           <item row="9" column="0">
            <layout class="QHBoxLayout" name="horizontalLayout">
+            <property name="spacing">
+             <number>50</number>
+            </property>
+            <property name="leftMargin">
+             <number>50</number>
+            </property>
+            <property name="rightMargin">
+             <number>50</number>
+            </property>
             <item>
              <widget class="QPushButton" name="pushButton_2">
               <property name="sizePolicy">
@@ -188,6 +197,14 @@ QScrollBar::add-line:horizontal {
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: white;
+border-style:outset;
+border-radius:10px;
+border-color:black;
+font:bold 15px;
+padding 20px;</string>
               </property>
               <property name="text">
                <string>PushButton</string>
@@ -202,6 +219,14 @@ QScrollBar::add-line:horizontal {
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: white;
+border-style:outset;
+border-radius:10px;
+border-color:black;
+font:bold 15px;
+padding 20px;</string>
+              </property>
               <property name="text">
                <string>PushButton</string>
               </property>
@@ -214,6 +239,14 @@ QScrollBar::add-line:horizontal {
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: white;
+border-style:outset;
+border-radius:10px;
+border-color:black;
+font:bold 15px;
+padding 20px;</string>
               </property>
               <property name="text">
                <string>PushButton</string>

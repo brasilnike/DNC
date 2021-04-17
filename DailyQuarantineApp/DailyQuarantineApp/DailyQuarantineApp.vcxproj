@@ -117,6 +117,7 @@
     <ClCompile Include="Notes.cpp" />
     <ClCompile Include="NoteSelected.cpp" />
     <ClCompile Include="test.cpp" />
+    <ClCompile Include="User.cpp" />
     <QtRcc Include="DailyQuarantineApp.qrc" />
     <QtUic Include="CovidPopUp.ui" />
     <QtUic Include="DailyQuarantineApp.ui" />
@@ -131,6 +132,7 @@
     <QtMoc Include="MainWindowApp.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="User.h" />
     <QtMoc Include="CovidPopUp.h" />
     <ClInclude Include="Database.h" />
     <ClInclude Include="Email.h" />

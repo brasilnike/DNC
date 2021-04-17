@@ -8,6 +8,8 @@
 #include <QListWidget>
 #include <QStringListModel>
 #include "NoteSelected.h"
+#include "Database.h"
+#include "User.h"
 
 class MainWindowApp : public QWidget
 {
@@ -16,6 +18,10 @@ class MainWindowApp : public QWidget
 public:
 	MainWindowApp(QWidget *parent = Q_NULLPTR);
 	~MainWindowApp();
+
+public:
+	void setHandle(const SQLHANDLE& sqlStmtHandle);
+	void setUser(User&& user);
 
 private:
 	Ui::MainWindowApp ui;
@@ -29,9 +35,18 @@ private slots:
 	void on_addNoteButton_pressed();
 
 	void on_listWidget_itemDoubleClicked();
+
 private:
+	void insertNote(const Notes& note);
+	void getAllNotes();
+
+private:
+	SQLHANDLE m_sqlStmtHandle;
 	Notes m_currentNote;
 	std::vector<Notes> m_listNotes;
+	User m_user;
+	int m_lastNoteIndex;
+
 };
 
 enum class Pages
