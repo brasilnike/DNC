@@ -52,14 +52,23 @@
     <ClCompile Include="Notes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MainWindowApp.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="test.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="MainWindowApp.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="test.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
