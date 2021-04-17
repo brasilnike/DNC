@@ -4,6 +4,7 @@
 #include "ui_DailyQuarantineApp.h"
 #include "MainWindowApp.h"
 #include "Database.h"
+#include "test.h"
 
 
 class DailyQuarantineApp : public QMainWindow
@@ -29,6 +30,7 @@ private slots:
 
 private:
     MainWindowApp m_mainFrame;
+    test m_test;
 
 private:
 	void setUsername(const QString& username);

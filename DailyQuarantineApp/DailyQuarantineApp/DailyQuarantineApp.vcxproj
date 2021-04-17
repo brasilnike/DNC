@@ -62,7 +62,12 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Dependencies\CKMAIL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(SolutionDir)\Dependencies\CKMAIL\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ws2_32.lib;dnsapi.lib;crypt32.lib;ChilkatDbg_x64.lib;ChilkatDbgDll_x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
@@ -92,6 +97,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Database.cpp" />
+    <ClCompile Include="Email.cpp" />
     <ClCompile Include="MainWindowApp.cpp" />
     <ClCompile Include="Networking.cpp" />
     <ClCompile Include="Notes.cpp" />
@@ -109,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Database.h" />
+    <ClInclude Include="Email.h" />
     <ClInclude Include="Networking.h" />
     <ClInclude Include="Notes.h" />
     <QtMoc Include="test.h" />
