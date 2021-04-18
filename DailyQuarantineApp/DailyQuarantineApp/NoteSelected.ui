@@ -15,7 +15,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget{
-	background-color:rgb(255, 126, 34);
+	background-color: rgb(255, 228, 216);
 }
 
 QScrollBar:vertical {
@@ -117,7 +117,8 @@ QScrollBar::add-line:horizontal {
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+        <string notr="true">color: black;
+</string>
        </property>
        <property name="text">
         <string>Note id:</string>
@@ -138,7 +139,8 @@ QScrollBar::add-line:horizontal {
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+        <string notr="true">color: black;
+</string>
        </property>
        <property name="text">
         <string>Note id:</string>
@@ -160,7 +162,8 @@ QScrollBar::add-line:horizontal {
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+        <string notr="true">color: black;
+</string>
        </property>
        <property name="text">
         <string>Note title:</string>
@@ -181,7 +184,8 @@ QScrollBar::add-line:horizontal {
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+        <string notr="true">color: black;
+</string>
        </property>
        <property name="text">
         <string>Note title:</string>
@@ -206,7 +210,8 @@ QScrollBar::add-line:horizontal {
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+        <string notr="true">color: black;
+</string>
        </property>
        <property name="text">
         <string>Note text:</string>
@@ -227,7 +232,8 @@ QScrollBar::add-line:horizontal {
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+        <string notr="true">color: black;
+</string>
        </property>
        <property name="text">
         <string>Note text:</string>
@@ -258,7 +264,8 @@ QScrollBar::add-line:horizontal {
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+        <string notr="true">color: black;
+</string>
        </property>
        <property name="text">
         <string>Note date:</string>
@@ -279,7 +286,8 @@ QScrollBar::add-line:horizontal {
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+        <string notr="true">color: black;
+</string>
        </property>
        <property name="text">
         <string>Note date:</string>

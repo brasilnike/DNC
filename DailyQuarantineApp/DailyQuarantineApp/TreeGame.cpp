@@ -46,7 +46,7 @@ void TreeGame::updateCountdown()
 
 void TreeGame::updateUserTable()
 {
-    if (!cheated)
+    if (cheated==false)
     {
         std::string query_string = "UPDATE Users SET nr_dogs = ? WHERE user_id = ?";
         std::wstring  query_wstring(query_string.begin(), query_string.end());
@@ -70,31 +70,32 @@ void TreeGame::updateUserTable()
 
 void TreeGame::on_startGameButton_pressed()
 {
+    m_accDogs = m_user.getDogs();
     ui.stackedWidget->setCurrentIndex(ui.stackedWidget->currentIndex() + 1);
     timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(updateCountdown()));
     timer->start(1000);
     time.setHMS(0, 20, 0);
+    ui.catelusiText->setText(QString::number(m_currDogs));
+    ui.catelusiContText->setText(QString::number(m_accDogs));
 }
 
 bool TreeGame::eventFilter(QObject* watched, QEvent* event)
 {
     if (watched == ui.stackedWidget)
     {
-        if (event->type() == QEvent::Leave)
+        if (ui.stackedWidget->currentIndex() == 1)
         {
-            timer->stop();
-            ui.time_remaining->setText("You tried to cheat. Not cool.");
-            qDebug() << tr("Button event monitored, mouse left button event");
-            cheated = true;
-            return true;
+            if (event->type() == QEvent::Leave)
+            {
+                timer->stop();
+                ui.time_remaining->setText("You tried to cheat. Not cool.");
+                qDebug() << tr("Button event monitored, mouse left button event");
+                cheated = true;
+                return true;
+            }
         }
     }
     return QWidget::eventFilter(watched, event);
 }
 
-void TreeGame::showEvent(QShowEvent* ev)
-{
-    QWidget::showEvent(ev);
-    m_accDogs = m_user.getDogs();
-}

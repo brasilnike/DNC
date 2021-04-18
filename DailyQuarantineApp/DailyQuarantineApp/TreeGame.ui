@@ -125,7 +125,7 @@ QScrollBar::add-line:horizontal {
       <number>0</number>
      </property>
      <widget class="QWidget" name="page">
-      <layout class="QGridLayout" name="gridLayout_3" rowstretch="5,1,0">
+      <layout class="QGridLayout" name="gridLayout_3" rowstretch="5,1">
        <property name="leftMargin">
         <number>50</number>
        </property>
@@ -262,7 +262,7 @@ padding 20px;</string>
             <string notr="true">color: rgb(255, 255, 255);</string>
            </property>
            <property name="text">
-            <string>Numar catelusi pe cont:</string>
+            <string>Number of dogs on acccount:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -305,7 +305,7 @@ padding 20px;</string>
             <string notr="true">color: rgb(255, 255, 255);</string>
            </property>
            <property name="text">
-            <string>Numar catelusi in sesiunea curenta:</string>
+            <string>Number of dogs in current session:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

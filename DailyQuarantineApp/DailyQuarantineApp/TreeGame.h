@@ -32,7 +32,6 @@ private:
 
 protected:
 	bool eventFilter(QObject* watched, QEvent* event);
-	void showEvent(QShowEvent* ev);
 
 private:
 	int m_accDogs;
