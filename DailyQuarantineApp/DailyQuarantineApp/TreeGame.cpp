@@ -9,14 +9,27 @@ TreeGame::TreeGame(QWidget *parent)
 {
 	ui.setupUi(this);
     ui.stackedWidget->installEventFilter(this);
-    timer = new QTimer();
-    connect(timer, SIGNAL(timeout()), this, SLOT(updateCountdown()));
-    timer->start(1000);
-    time.setHMS(0, 20, 0);
+    m_accDogs = m_user.getDogs();
 }
 
 TreeGame::~TreeGame()
 {
+}
+
+void TreeGame::setStmt(const SQLHANDLE& stmt)
+{
+    m_stmt = stmt;
+}
+
+void TreeGame::setUser(User&& user)
+{
+    m_user = std::move(user);
+}
+
+void TreeGame::on_GameReturnButton_pressed()
+{
+    updateUserTable();
+    close();
 }
 
 void TreeGame::updateCountdown()
@@ -36,9 +49,36 @@ void TreeGame::updateCountdown()
 	}
 }
 
+void TreeGame::updateUserTable()
+{
+    SQLFreeStmt(m_stmt, SQL_CLOSE);
+
+    std::string query_string = "UPDATE Users SET nr_dogs = ? WHERE user_id = ?";
+    std::wstring  query_wstring(query_string.begin(), query_string.end());
+    SQLWCHAR* SQLQuery = (SQLWCHAR*)query_wstring.c_str();
+    int id = m_user.getId();
+    int count = m_accDogs;
+    SQLRETURN retcode = SQLPrepare(m_stmt, SQLQuery, SQL_NTS);
+    retcode = SQLBindParameter(m_stmt, 1, SQL_PARAM_INPUT, SQL_C_LONG, SQL_INTEGER, 0, 0, &count, 0, NULL);
+    retcode = SQLBindParameter(m_stmt, 2, SQL_PARAM_INPUT, SQL_C_LONG, SQL_INTEGER, 0, 0, &id, 0, NULL);
+
+    retcode = SQLExecute(m_stmt);
+
+    if (SQL_SUCCESS != retcode) {
+        std::cout << "ERROR UPDATE" << std::endl;
+
+    }
+
+    SQLFreeStmt(m_stmt, SQL_CLOSE);
+}
+
 void TreeGame::on_startGameButton_pressed()
 {
     ui.stackedWidget->setCurrentIndex(ui.stackedWidget->currentIndex() + 1);
+    timer = new QTimer();
+    connect(timer, SIGNAL(timeout()), this, SLOT(updateCountdown()));
+    timer->start(1000);
+    time.setHMS(0, 20, 0);
 }
 
 bool TreeGame::eventFilter(QObject* watched, QEvent* event)
@@ -48,7 +88,7 @@ bool TreeGame::eventFilter(QObject* watched, QEvent* event)
         if (event->type() == QEvent::Leave)
         {
             timer->stop();
-            ui.time_remaining->setText("Ati incercat sa trisati");
+            ui.time_remaining->setText("You tried to cheat. Not cool.");
             qDebug() << tr("Button event monitored, mouse left button event");
             return true;
         }

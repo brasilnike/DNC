@@ -7,7 +7,6 @@
 #include "test.h"
 #include "CovidPopUp.h"
 #include "User.h"
-#include "TreeGame.h"
 
 class DailyQuarantineApp : public QMainWindow
 {
@@ -21,8 +20,6 @@ private:
     QString m_username;
     QString m_password;
     Database database;
-    //CovidPopUp m_covidFrame;
-    TreeGame m_treeGameFrame;
 
 protected:
     void showEvent(QShowEvent* ev);

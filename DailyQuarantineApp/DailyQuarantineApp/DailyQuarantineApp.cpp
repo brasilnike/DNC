@@ -11,20 +11,19 @@ DailyQuarantineApp::DailyQuarantineApp(QWidget *parent)
 {
     ui.setupUi(this);
 	this->hide();
-	m_treeGameFrame.show();
 }
 
 void DailyQuarantineApp::on_loginButton_pressed()
 {
 	QString username = ui.username_login_edit->text();
 	QString password = ui.password_login_edit->text();
-	//m_mainFrame.setHandle(database.getStmtHandle());
-	m_mainFrame.show();
+	m_mainFrame.setHandle(database.getStmtHandle());
+	//m_mainFrame.show();
 	//m_covidFrame.show();
 	//m_test.show();
-    //setUsername(username);
-	//setPassword(password);
-    //verifyUserAccount();
+    setUsername(username);
+	setPassword(password);
+    verifyUserAccount();
 }
 
 void DailyQuarantineApp::on_registrationButton_pressed()
@@ -77,7 +76,7 @@ void DailyQuarantineApp::setPassword(const QString& password)
 void DailyQuarantineApp::verifyUserAccount()
 {
 	SQLHANDLE sqlStmtHandle = database.getStmtHandle();
-	SQLWCHAR SQLQuery[] = L"SELECT * FROM Users";
+	SQLWCHAR SQLQuery[] = L"SELECT user_id, username, password, email, ISNULL(nr_dogs, 0) AS NRDOGS FROM Users";
 
 	std::string user_username = m_username.toUtf8().constData();
 	std::string user_password = m_password.toUtf8().constData();
@@ -96,6 +95,7 @@ void DailyQuarantineApp::verifyUserAccount()
 		char  password[SQL_RESULT_LEN];
 		char  email[SQL_RESULT_LEN];
 		int id;
+		int nr_dogs;
 		bool connect = false;
 
 		while (SQLFetch(sqlStmtHandle) == SQL_SUCCESS) {
@@ -104,6 +104,7 @@ void DailyQuarantineApp::verifyUserAccount()
 			SQLGetData(sqlStmtHandle, 2, SQL_C_DEFAULT, &username, sizeof(username), NULL);
 			SQLGetData(sqlStmtHandle, 3, SQL_C_DEFAULT, &password, sizeof(password), NULL);
 			SQLGetData(sqlStmtHandle, 4, SQL_C_DEFAULT, &email, sizeof(password), NULL);
+			SQLGetData(sqlStmtHandle, 5, SQL_C_DEFAULT, &nr_dogs, sizeof(password), NULL);
 
 			std::stringstream ss;
 			ss << username;
@@ -123,6 +124,7 @@ void DailyQuarantineApp::verifyUserAccount()
 				//If exists, set the id of the student to retrieve additional information about him from the database
 				m_user.setId(id);
 				m_user.setEmail(email);
+				m_user.setDogs(nr_dogs);
 				m_mainFrame.setUser(std::forward<User&&>(m_user));
 				m_mainFrame.show();
 				close();

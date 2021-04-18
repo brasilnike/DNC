@@ -10,6 +10,8 @@
 #include <QDebug>
 #include <qstackedwidget.h>
 #include <QTime>
+#include "Database.h"
+#include <User.h>
 
 class TreeGame : public QWidget
 {
@@ -20,6 +22,11 @@ public:
 	~TreeGame();
 	QTime time;
 	QTimer* timer;
+
+public:
+	void setStmt(const SQLHANDLE& stmt);
+	void setUser(User&& user);
+
 private:
 	Ui::TreeGame ui;
 
@@ -27,12 +34,14 @@ protected:
 	bool eventFilter(QObject* watched, QEvent* event);
 
 private:
-	//void setupUI();
-	//QStackedWidget* stackedWidget;
-	int m_accDogs = 0;
+	int m_accDogs;
 	int m_currDogs = 0;
+	SQLHANDLE m_stmt;
+	User m_user;
 
 private slots:
 	void on_startGameButton_pressed();
+	void on_GameReturnButton_pressed();
 	void updateCountdown();
+	void updateUserTable();
 };

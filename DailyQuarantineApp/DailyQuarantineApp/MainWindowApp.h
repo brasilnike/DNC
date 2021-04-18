@@ -18,6 +18,7 @@
 #include <QJsonValue>
 #include <QJsonArray>
 #include <QJsonObject>
+#include <TreeGame.h>
 
 
 class MainWindowApp : public QWidget
@@ -35,11 +36,13 @@ public:
 private:
 	Ui::MainWindowApp ui;
 	NoteSelected m_noteSelected;
+	TreeGame m_game;
 
 private slots:
 	void on_calendarButton_pressed();
 	void on_medicButton_pressed();
 	void on_covidButton_pressed();
+	void on_gameButton_pressed();
 
 	void on_CalendarReturnButton_pressed();
 	void on_calendarWidget_clicked();

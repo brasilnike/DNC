@@ -122,7 +122,7 @@ QScrollBar::add-line:horizontal {
 </string>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="page">
       <widget class="QPushButton" name="startGameButton">
@@ -208,7 +208,7 @@ If you try to quit the application before this time passes, you will lose the pr
         <string>TextLabel</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="GameReturnButton">
        <property name="geometry">
         <rect>
          <x>630</x>

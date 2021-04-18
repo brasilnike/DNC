@@ -44,6 +44,13 @@ void MainWindowApp::on_covidButton_pressed()
 	ui.stackedWidget->setCurrentIndex(int(Pages::Covid));
 }
 
+void MainWindowApp::on_gameButton_pressed()
+{
+	m_game.setStmt(m_sqlStmtHandle);
+	m_game.show();
+	//close();
+}
+
 void MainWindowApp::on_calendarWidget_clicked()
 {
 	ui.stackedWidget->setCurrentIndex(int(Pages::Notes));
@@ -66,8 +73,6 @@ void MainWindowApp::on_MedicReturnButton_pressed()
 
 void MainWindowApp::on_SendEmailButton_pressed()
 {
-	std::cout << "EMAIL TEST" << std::endl;
-
 	std::string emailTime = m_email.dateTimeToString(m_email.currentTime(), "%A %B, %d %Y %I:%M%p");
 	std::string patientName = ui.email_name->toPlainText().toUtf8().constData();
 	std::string emailContent = ui.email_content->toPlainText().toUtf8().constData();
