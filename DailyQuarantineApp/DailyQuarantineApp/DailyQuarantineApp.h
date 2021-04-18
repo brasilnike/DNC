@@ -45,6 +45,9 @@ private:
     bool validateFields(const std::string& username, const std::string& password, const std::string& email);
     void updateUserTable(const::std::string& username, const std::string& password, const std::string& email);
 
+    bool checkPasswordHash(const std::string&, const std::string&);
+    std::string hashPassword(const char*&);
+
 	QString getUsername()const;
 	QString getPassword()const;
 };

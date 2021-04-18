@@ -2,8 +2,9 @@
 #include "Networking.h"
 #include <QtWidgets/qmessagebox.h>
 #include <sstream>
+#include "PasswordHash.h"
 
-#define SQL_RESULT_LEN 50
+#define SQL_RESULT_LEN 100
 
 DailyQuarantineApp::DailyQuarantineApp(QWidget *parent)
     : QMainWindow(parent)
@@ -17,13 +18,13 @@ void DailyQuarantineApp::on_loginButton_pressed()
 {
 	QString username = ui.username_login_edit->text();
 	QString password = ui.password_login_edit->text();
-	//m_mainFrame.setHandle(database.getStmtHandle());
-	m_mainFrame.show();
+	m_mainFrame.setHandle(database.getStmtHandle());
+	//m_mainFrame.show();
 	//m_covidFrame.show();
 	//m_test.show();
-    //setUsername(username);
-   // setPassword(password);
-    //verifyUserAccount();
+    setUsername(username);
+	setPassword(password);
+    verifyUserAccount();
 }
 
 void DailyQuarantineApp::on_registrationButton_pressed()
@@ -110,9 +111,15 @@ void DailyQuarantineApp::verifyUserAccount()
 			ss.clear();
 			ss << password;
 			ss >> data_password;
+			
+			std::string whitespace = " ";
+			for (char c : whitespace)
+			{
+				data_password.erase(std::remove(data_password.begin(), data_password.end(), c), data_password.end());
+			}
 
 			//Verify if the user exists in the database 
-			if (data_username == user_username &&  user_password==data_password) {
+			if (data_username == user_username && checkPasswordHash(user_password, data_password)) {
 				//If exists, set the id of the student to retrieve additional information about him from the database
 				m_user.setId(id);
 				m_user.setEmail(email);
@@ -160,17 +167,62 @@ bool DailyQuarantineApp::validateFields(const std::string& username, const std::
 void DailyQuarantineApp::updateUserTable(const::std::string& username, const std::string& password, const std::string& email)
 {
 	SQLHANDLE sqlStmtHandle = database.getStmtHandle();
+	
+	const char* pass = password.c_str();
+	std::string encryptedPass = hashPassword(pass);
 
 	SQLRETURN retcode = SQLPrepare(sqlStmtHandle, (SQLWCHAR*)L"INSERT INTO Users (username, password,email) VALUES(?,?,?) ", SQL_NTS);
 	retcode = SQLBindParameter(sqlStmtHandle, 1, SQL_PARAM_INPUT, SQL_C_CHAR, SQL_VARCHAR, 50, 0, (SQLPOINTER)username.c_str(), username.length(), NULL);
-	retcode = SQLBindParameter(sqlStmtHandle, 2, SQL_PARAM_INPUT, SQL_C_CHAR, SQL_VARCHAR, 50, 0, (SQLPOINTER)password.c_str(), password.length(), NULL);
+	retcode = SQLBindParameter(sqlStmtHandle, 2, SQL_PARAM_INPUT, SQL_C_CHAR, SQL_VARCHAR, 100, 0, (SQLPOINTER)encryptedPass.c_str(), encryptedPass.length(), NULL);
 	retcode = SQLBindParameter(sqlStmtHandle, 3, SQL_PARAM_INPUT, SQL_C_CHAR, SQL_VARCHAR, 50, 0, (SQLPOINTER)email.c_str(), email.length(), NULL);
 	retcode = SQLExecute(sqlStmtHandle);
 
 	if (SQL_SUCCESS != retcode) {
-		std::cout << "ERROR1" << std::endl;
+		std::cout << "ERROR UPDATE" << std::endl;
 	}
 		SQLFreeStmt(sqlStmtHandle, SQL_CLOSE);
+}
+
+bool DailyQuarantineApp::checkPasswordHash(const std::string& password, const std::string& hashPassword)
+{
+	PasswordHash pHash;
+	const char* pass = password.c_str();
+	const char* hash = hashPassword.c_str();
+
+	try {
+
+		bool checkValid = pHash.verifyPassword(pass, hash);
+		return checkValid;
+	}
+	catch (std::exception& exception)
+	{
+		std::cout << "Error during password verification" << std::endl;
+		return false;
+	}
+}
+
+std::string DailyQuarantineApp::hashPassword(const char*& userPass)
+{
+	std::string resultHash = "default hash";
+	PasswordHash pHash;
+	const char* bCryptPass;
+
+	try {
+
+		pHash.hashPassword(userPass, bCryptPass);
+
+		if (bCryptPass != NULL)
+		{
+			resultHash = std::string(bCryptPass);
+		}
+	}
+	catch (std::exception& exception)
+	{
+		std::cout << "Hashing error" << std::endl;
+
+	}
+
+	return resultHash;
 }
 
 QString DailyQuarantineApp::getUsername() const

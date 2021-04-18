@@ -116,6 +116,7 @@
     <ClCompile Include="Networking.cpp" />
     <ClCompile Include="Notes.cpp" />
     <ClCompile Include="NoteSelected.cpp" />
+    <ClCompile Include="PasswordHash.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="TreeGame.cpp" />
     <ClCompile Include="User.cpp" />
@@ -135,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="TreeGame.h" />
+    <ClInclude Include="PasswordHash.h" />
     <ClInclude Include="User.h" />
     <QtMoc Include="CovidPopUp.h" />
     <ClInclude Include="Database.h" />
