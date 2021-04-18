@@ -20,9 +20,9 @@ void TreeGame::setStmt(const SQLHANDLE& stmt)
     m_stmt = stmt;
 }
 
-void TreeGame::setUser(User&& user)
+void TreeGame::setUser(User user)
 {
-    m_user = std::move(user);
+    m_user = user;
 }
 
 void TreeGame::on_GameReturnButton_pressed()
@@ -33,14 +33,12 @@ void TreeGame::on_GameReturnButton_pressed()
 
 void TreeGame::updateCountdown()
 {
-    m_accDogs = m_user.getDogs();
 	time = time.addSecs(-1);
 	ui.time_remaining->setText(time.toString("mm:ss"));
     if (ui.time_remaining->text() == "19:59")
     {
         m_currDogs++;
         ui.catelusiText->setText(QString::number(m_currDogs));
-        m_accDogs++;
         ui.catelusiContText->setText(QString::number(m_accDogs));
     }
 }
@@ -51,7 +49,7 @@ void TreeGame::updateUserTable()
     std::wstring  query_wstring(query_string.begin(), query_string.end());
     SQLWCHAR* SQLQuery = (SQLWCHAR*)query_wstring.c_str();
     int id = m_user.getId();
-    int count = m_accDogs;
+    int count = m_accDogs + m_currDogs;
     SQLRETURN retcode = SQLPrepare(m_stmt, SQLQuery, SQL_NTS);
     retcode = SQLBindParameter(m_stmt, 1, SQL_PARAM_INPUT, SQL_C_LONG, SQL_INTEGER, 0, 0, &count, 0, NULL);
     retcode = SQLBindParameter(m_stmt, 2, SQL_PARAM_INPUT, SQL_C_LONG, SQL_INTEGER, 0, 0, &id, 0, NULL);
@@ -88,4 +86,10 @@ bool TreeGame::eventFilter(QObject* watched, QEvent* event)
         }
     }
     return QWidget::eventFilter(watched, event);
+}
+
+void TreeGame::showEvent(QShowEvent* ev)
+{
+    QWidget::showEvent(ev);
+    m_accDogs = m_user.getDogs();
 }

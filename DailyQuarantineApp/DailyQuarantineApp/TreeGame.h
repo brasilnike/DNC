@@ -25,13 +25,14 @@ public:
 
 public:
 	void setStmt(const SQLHANDLE& stmt);
-	void setUser(User&& user);
+	void setUser(User user);
 
 private:
 	Ui::TreeGame ui;
 
 protected:
 	bool eventFilter(QObject* watched, QEvent* event);
+	void showEvent(QShowEvent* ev);
 
 private:
 	int m_accDogs;
