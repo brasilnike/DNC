@@ -9,6 +9,7 @@
 #include <QMouseEvent>
 #include <QDebug>
 #include <qstackedwidget.h>
+#include <QTime>
 
 class TreeGame : public QWidget
 {
@@ -17,7 +18,8 @@ class TreeGame : public QWidget
 public:
 	TreeGame(QWidget *parent = Q_NULLPTR);
 	~TreeGame();
-
+	QTime time;
+	QTimer* timer;
 private:
 	Ui::TreeGame ui;
 
@@ -25,6 +27,11 @@ protected:
 	bool eventFilter(QObject* watched, QEvent* event);
 
 private:
-	void setupUI();
+	//void setupUI();
 	//QStackedWidget* stackedWidget;
+	
+
+private slots:
+	void on_startGameButton_pressed();
+	void updateCountdown();
 };

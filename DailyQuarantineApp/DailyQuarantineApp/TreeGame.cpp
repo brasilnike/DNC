@@ -1,59 +1,49 @@
 #include "TreeGame.h"
 #include <QtWidgets/qboxlayout.h>
-
+#include <ctime>
+#include <QTime>
+#include <QTimer>
 TreeGame::TreeGame(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
-	
-    //ui.stackedWidget = new QLabel();
     ui.stackedWidget->installEventFilter(this);
-
-    /*QVBoxLayout* mainLayout = new QVBoxLayout();
-    mainLayout->addWidget(ui.stackedWidget);
-    mainLayout->addStretch();
-    this->setLayout(mainLayout);*/
+    timer = new QTimer();
+    connect(timer, SIGNAL(timeout()), this, SLOT(updateCountdown()));
+    timer->start(1000);
+    time.setHMS(0, 20, 0);
 }
 
 TreeGame::~TreeGame()
 {
 }
 
+void TreeGame::updateCountdown()
+{
+	time = time.addSecs(-1);
+	ui.time_remaining->setText(time.toString("mm:ss"));
+	if (ui.time_remaining->text() == "00:01")
+	{
+		timer->stop();
+	}
+}
+
+void TreeGame::on_startGameButton_pressed()
+{
+    ui.stackedWidget->setCurrentIndex(ui.stackedWidget->currentIndex() + 1);
+}
+
 bool TreeGame::eventFilter(QObject* watched, QEvent* event)
 {
     if (watched == ui.stackedWidget)
     {
-        if (event->type() == QEvent::MouseButtonPress)
-        {
-            qDebug() << tr("Button event is monitored, mouse enter button event");
-            return true;
-        }
         if (event->type() == QEvent::Leave)
         {
+            timer->stop();
+            ui.time_remaining->setText("Ati incercat sa trisati");
             qDebug() << tr("Button event monitored, mouse left button event");
             return true;
         }
-        /*if (event->type() == QEvent::FocusOut)
-        {
-            qDebug() << tr("Button event is monitored, mouse enter button event");
-            return true;
-        }
-        else 
-        else if (event->type() == QEvent::MouseButtonPress)
-        {
-            qDebug() << tr("Button event is monitored, mouse click button event");
-            return true;
-        }
-        else if (event->type() == QEvent::MouseButtonRelease)
-        {
-            qDebug() << tr("Button event monitored, mouse release button event");
-            return true;
-        }
-        else if (event->type() == QEvent::MouseMove)
-        {
-            qDebug() << tr("Button event monitored, mouse release button event");
-            return true;
-        }*/
     }
     return QWidget::eventFilter(watched, event);
 }
