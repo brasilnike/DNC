@@ -1,4 +1,17 @@
 <RCC>
-    <qresource prefix="DailyQuarantineApp">
+    <qresource prefix="/DailyQuarantineApp">
+        <file>Images/covidIcon.png</file>
+        <file>Images/dog.png</file>
+        <file>Images/first.jpg</file>
+        <file>Images/intensiveCare.png</file>
+        <file>Images/newCases.png</file>
+        <file>Images/newDeathsToday.png</file>
+        <file>Images/newTests.png</file>
+        <file>Images/noPulse.png</file>
+        <file>Images/recovered.png</file>
+        <file>Images/testTube.png</file>
+        <file>Images/totalRecovered.png</file>
+        <file>Images/Totalvaccine.png</file>
+        <file>Images/verify-verified-check.png</file>
     </qresource>
 </RCC>

@@ -39,6 +39,7 @@ private:
 	int m_currDogs = 0;
 	SQLHANDLE m_stmt;
 	User m_user;
+	bool cheated = false;
 
 private slots:
 	void on_startGameButton_pressed();

@@ -45,23 +45,26 @@ void TreeGame::updateCountdown()
 
 void TreeGame::updateUserTable()
 {
-    std::string query_string = "UPDATE Users SET nr_dogs = ? WHERE user_id = ?";
-    std::wstring  query_wstring(query_string.begin(), query_string.end());
-    SQLWCHAR* SQLQuery = (SQLWCHAR*)query_wstring.c_str();
-    int id = m_user.getId();
-    int count = m_accDogs + m_currDogs;
-    SQLRETURN retcode = SQLPrepare(m_stmt, SQLQuery, SQL_NTS);
-    retcode = SQLBindParameter(m_stmt, 1, SQL_PARAM_INPUT, SQL_C_LONG, SQL_INTEGER, 0, 0, &count, 0, NULL);
-    retcode = SQLBindParameter(m_stmt, 2, SQL_PARAM_INPUT, SQL_C_LONG, SQL_INTEGER, 0, 0, &id, 0, NULL);
+    if (!cheated)
+    {
+        std::string query_string = "UPDATE Users SET nr_dogs = ? WHERE user_id = ?";
+        std::wstring  query_wstring(query_string.begin(), query_string.end());
+        SQLWCHAR* SQLQuery = (SQLWCHAR*)query_wstring.c_str();
+        int id = m_user.getId();
+        int count = m_accDogs + m_currDogs;
+        SQLRETURN retcode = SQLPrepare(m_stmt, SQLQuery, SQL_NTS);
+        retcode = SQLBindParameter(m_stmt, 1, SQL_PARAM_INPUT, SQL_C_LONG, SQL_INTEGER, 0, 0, &count, 0, NULL);
+        retcode = SQLBindParameter(m_stmt, 2, SQL_PARAM_INPUT, SQL_C_LONG, SQL_INTEGER, 0, 0, &id, 0, NULL);
 
-    retcode = SQLExecute(m_stmt);
+        retcode = SQLExecute(m_stmt);
 
-    if (SQL_SUCCESS != retcode) {
-        std::cout << "ERROR UPDATE" << std::endl;
+        if (SQL_SUCCESS != retcode) {
+            std::cout << "ERROR UPDATE" << std::endl;
 
+        }
+
+        SQLFreeStmt(m_stmt, SQL_CLOSE);
     }
-
-    SQLFreeStmt(m_stmt, SQL_CLOSE);
 }
 
 void TreeGame::on_startGameButton_pressed()
@@ -82,6 +85,7 @@ bool TreeGame::eventFilter(QObject* watched, QEvent* event)
             timer->stop();
             ui.time_remaining->setText("You tried to cheat. Not cool.");
             qDebug() << tr("Button event monitored, mouse left button event");
+            cheated = true;
             return true;
         }
     }

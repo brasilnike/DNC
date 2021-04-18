@@ -1257,7 +1257,7 @@ padding 20px;</string>
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>noPulse.png</pixmap>
+            <pixmap resource="DailyQuarantineApp.qrc">:/DailyQuarantineApp/Images/noPulse.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -1298,7 +1298,7 @@ padding 20px;</string>
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>totalRecovered.png</pixmap>
+            <pixmap resource="DailyQuarantineApp.qrc">:/DailyQuarantineApp/Images/totalRecovered.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -1339,7 +1339,7 @@ padding 20px;</string>
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>covidIcon.png</pixmap>
+            <pixmap resource="DailyQuarantineApp.qrc">:/DailyQuarantineApp/Images/covidIcon.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -1374,7 +1374,7 @@ padding 20px;</string>
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>recovered.png</pixmap>
+            <pixmap resource="DailyQuarantineApp.qrc">:/DailyQuarantineApp/Images/recovered.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -1517,7 +1517,7 @@ padding 20px;</string>
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>intensiveCare.png</pixmap>
+            <pixmap resource="DailyQuarantineApp.qrc">:/DailyQuarantineApp/Images/intensiveCare.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -1552,7 +1552,7 @@ padding 20px;</string>
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>first.jpg</pixmap>
+            <pixmap resource="DailyQuarantineApp.qrc">:/DailyQuarantineApp/Images/first.jpg</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -1752,7 +1752,7 @@ padding 20px;</string>
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>Totalvaccine.png</pixmap>
+            <pixmap resource="DailyQuarantineApp.qrc">:/DailyQuarantineApp/Images/Totalvaccine.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -1790,7 +1790,7 @@ padding 20px;</string>
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>newTests.png</pixmap>
+            <pixmap resource="DailyQuarantineApp.qrc">:/DailyQuarantineApp/Images/newTests.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -1879,7 +1879,7 @@ padding 20px;</string>
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>newCases.png</pixmap>
+            <pixmap resource="DailyQuarantineApp.qrc">:/DailyQuarantineApp/Images/newCases.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -1914,7 +1914,7 @@ padding 20px;</string>
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>newDeathsToday.png</pixmap>
+            <pixmap resource="DailyQuarantineApp.qrc">:/DailyQuarantineApp/Images/newDeathsToday.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -1952,7 +1952,7 @@ padding 20px;</string>
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>verify-verified-check.png</pixmap>
+            <pixmap resource="DailyQuarantineApp.qrc">:/DailyQuarantineApp/Images/verify-verified-check.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -2098,7 +2098,7 @@ padding 20px;</string>
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>testTube.png</pixmap>
+            <pixmap resource="DailyQuarantineApp.qrc">:/DailyQuarantineApp/Images/testTube.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -2487,6 +2487,8 @@ padding 20px;</string>
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="DailyQuarantineApp.qrc"/>
+ </resources>
  <connections/>
 </ui>
