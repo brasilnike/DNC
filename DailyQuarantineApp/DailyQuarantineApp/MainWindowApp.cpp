@@ -47,7 +47,7 @@ void MainWindowApp::on_covidButton_pressed()
 void MainWindowApp::on_gameButton_pressed()
 {
 	m_game.setStmt(m_sqlStmtHandle);
-	m_game.setUser(std::forward<User&&>(m_user));
+	m_game.setUser(m_user);
 	m_game.show();
 	//close();
 }
@@ -66,6 +66,7 @@ void MainWindowApp::on_addNoteButton_pressed()
 	ui.stackedWidget->setCurrentIndex(int(Pages::Calendar));
 	insertNote(aux);
 }
+
 
 void MainWindowApp::on_MedicReturnButton_pressed()
 {
@@ -182,6 +183,28 @@ static size_t my_write(void* buffer, size_t size, size_t nmemb, void* param)
 	return totalsize;
 }
 
+std::string MainWindowApp::connectionCurl()
+{
+	std::string result;
+	CURL* curl;
+	CURLcode res;
+	curl_global_init(CURL_GLOBAL_DEFAULT);
+	curl = curl_easy_init();
+	if (curl) {
+		curl_easy_setopt(curl, CURLOPT_URL, "https://www.graphs.ro/json.php");
+		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, my_write);
+		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &result);
+		curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L);
+		res = curl_easy_perform(curl);
+		curl_easy_cleanup(curl);
+		if (CURLE_OK != res) {
+			std::cerr << "CURL error: " << res << '\n';
+		}
+	}
+	curl_global_cleanup();
+	return result;
+}
+
 void MainWindowApp::statistics()
 {
 	std::string result;
@@ -202,6 +225,7 @@ void MainWindowApp::statistics()
 	}
 	curl_global_cleanup();
 	//std::cout << result << "\n\n";
+	//std::string result = connectionCurl();
 	std::ofstream write("test.json");
 	write << result;
 	write.close();

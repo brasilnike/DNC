@@ -122,7 +122,7 @@ QScrollBar::add-line:horizontal {
 </string>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="page">
       <widget class="QPushButton" name="startGameButton">
@@ -249,7 +249,7 @@ padding 20px;</string>
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>dog.png</pixmap>
+        <pixmap resource="DailyQuarantineApp.qrc">:/DailyQuarantineApp/Images/dog.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -357,6 +357,8 @@ padding 20px;</string>
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="DailyQuarantineApp.qrc"/>
+ </resources>
  <connections/>
 </ui>

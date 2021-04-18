@@ -58,6 +58,7 @@ private:
 	void insertNote(const Notes& note);
 	void getAllNotes();
 	void statistics();
+	std::string connectionCurl();
 
 private:
 	SQLHANDLE m_sqlStmtHandle;
