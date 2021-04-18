@@ -80,6 +80,11 @@ void MainWindowApp::on_SendEmailButton_pressed()
 	if (m_email.sendMail());
 }
 
+void MainWindowApp::on_CovidReturnButton_pressed()
+{
+	ui.stackedWidget->setCurrentIndex(int(Pages::Principal));
+}
+
 void MainWindowApp::on_CalendarReturnButton_pressed()
 {
 	ui.stackedWidget->setCurrentIndex(int(Pages::Principal));

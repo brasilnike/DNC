@@ -44,12 +44,12 @@ private slots:
 	void on_CalendarReturnButton_pressed();
 	void on_calendarWidget_clicked();
 	void on_addNoteButton_pressed();
-
+	void on_listWidget_itemDoubleClicked();
 
 	void on_MedicReturnButton_pressed();
 	void on_SendEmailButton_pressed();
-
-	void on_listWidget_itemDoubleClicked();
+	
+	void on_CovidReturnButton_pressed();
 
 private:
 	void insertNote(const Notes& note);
