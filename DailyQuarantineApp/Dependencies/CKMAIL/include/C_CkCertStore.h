@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.85
+// This is a generated source file for Chilkat version 9.5.0.86
 #ifndef _C_CkCertStore_H
 #define _C_CkCertStore_H
 #include "chilkatDefs.h"
@@ -25,6 +25,9 @@ CK_C_VISIBLE_PUBLIC int CkCertStore_getNumCertificates(HCkCertStore cHandle);
 #if defined(CK_WINCERTSTORE_INCLUDED)
 CK_C_VISIBLE_PUBLIC int CkCertStore_getNumEmailCerts(HCkCertStore cHandle);
 #endif
+CK_C_VISIBLE_PUBLIC void CkCertStore_getSmartCardPin(HCkCertStore cHandle, HCkString retval);
+CK_C_VISIBLE_PUBLIC void CkCertStore_putSmartCardPin(HCkCertStore cHandle, const char *newVal);
+CK_C_VISIBLE_PUBLIC const char *CkCertStore_smartCardPin(HCkCertStore cHandle);
 CK_C_VISIBLE_PUBLIC BOOL CkCertStore_getUtf8(HCkCertStore cHandle);
 CK_C_VISIBLE_PUBLIC void CkCertStore_putUtf8(HCkCertStore cHandle, BOOL newVal);
 CK_C_VISIBLE_PUBLIC BOOL CkCertStore_getVerboseLogging(HCkCertStore cHandle);

@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.85
+// This header is generated for Chilkat 9.5.0.86
 
 #ifndef _CkCrypt2W_H
 #define _CkCrypt2W_H

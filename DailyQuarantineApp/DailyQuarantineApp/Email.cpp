@@ -68,33 +68,57 @@ bool Email::sendMail()
     if (canSend() == false)
         return false;
 
+    //CkMailMan mailman;
+
+    //// Set the SMTP server.
+    //mailman.put_SmtpHost("smtp.gmail.com");
+
+    //// Set the SMTP login/password
+    //mailman.put_SmtpUsername("questionnaireproject2020@gmail.com");
+    //mailman.put_SmtpPassword("BTRNEPWEB");
+    //mailman.put_SmtpPort(465);
+
+    //// Create a new email object
+    //CkEmail email;
+
+    //email.put_Subject(&std::get<2>(m_email)[0]);
+    //email.put_Body(&std::get<3>(m_email)[0]);
+
+    //std::string sintax = std::get<0>(m_email) + " <" + std::get<1>(m_email) + ">";
+
+    //email.put_From(&sintax[0]);
+
+    //bool success = email.AddTo(&std::get<0>(m_email)[0], &std::get<1>(m_email)[0]);
+
+    //if (email.get_LastMethodSuccess() != true) {
+    //    return false;
+    //}
+
+     // The mailman object is used for sending and receiving email.
     CkMailMan mailman;
 
     // Set the SMTP server.
     mailman.put_SmtpHost("smtp.gmail.com");
+    mailman.put_SmtpPort(587);
 
-    // Set the SMTP login/password
+    // Set the SMTP login/password (if required)
     mailman.put_SmtpUsername("questionnaireproject2020@gmail.com");
     mailman.put_SmtpPassword("BTRNEPWEB");
-    mailman.put_SmtpPort(465);
 
     // Create a new email object
     CkEmail email;
 
-    email.put_Subject(&std::get<2>(m_email)[0]);
-    email.put_Body(&std::get<3>(m_email)[0]);
+    email.put_Subject("This is a test");
+    email.put_Body("This is a test");
+    email.put_From("Salam <questionnaireproject2020@gmail.com>");
+    boolean success = email.AddTo("Chilkat Admin", "alexneacsu2000@gmail.com");
+    // To add more recipients, call AddTo, AddCC, or AddBcc once per recipient.
 
-    std::string sintax = std::get<0>(m_email) + " <" + std::get<1>(m_email) + ">";
-
-    email.put_From(&sintax[0]);
-
-    bool success = email.AddTo(&std::get<0>(m_email)[0], &std::get<1>(m_email)[0]);
-
-    const char* contentType = email.addFileAttachment("studentAnswers.txt");
-    if (email.get_LastMethodSuccess() != true) {
-        return false;
-    }
-
+    // Call SendEmail to connect to the SMTP server and send.
+    // The connection (i.e. session) to the SMTP server remains
+    // open so that subsequent SendEmail calls may use the
+    // same connection.  
+    
     success = mailman.SendEmail(email);
     if (success != true) {
         return false;

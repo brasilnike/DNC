@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.85
+// This header is generated for Chilkat 9.5.0.86
 
 #ifndef _CkHttp_H
 #define _CkHttp_H

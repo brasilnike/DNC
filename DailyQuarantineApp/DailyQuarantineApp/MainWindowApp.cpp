@@ -58,6 +58,32 @@ void MainWindowApp::on_addNoteButton_pressed()
 	insertNote(aux);
 }
 
+void MainWindowApp::on_MedicReturnButton_pressed()
+{
+	ui.stackedWidget->setCurrentIndex(int(Pages::Principal));
+}
+
+void MainWindowApp::on_SendEmailButton_pressed()
+{
+	std::cout << "EMAIL TEST" << std::endl;
+
+	std::string emailTime = m_email.dateTimeToString(m_email.currentTime(), "%A %B, %d %Y %I:%M%p");
+	std::string patientName = ui.email_name->toPlainText().toUtf8().constData();
+	std::string emailContent = ui.email_content->toPlainText().toUtf8().constData();
+	
+	m_email.setName("Daily Quarantine App");
+	m_email.setAdress(ui.email_medic_email->toPlainText().toUtf8().constData());
+	m_email.setSubject(ui.email_title->toPlainText().toUtf8().constData());
+	m_email.setMessage("Patient name: "+ patientName +" \n" + "Content: "+emailContent+"\n"+"Time when the email was send: "+ emailTime);
+
+	if (m_email.sendMail());
+}
+
+void MainWindowApp::on_CalendarReturnButton_pressed()
+{
+	ui.stackedWidget->setCurrentIndex(int(Pages::Principal));
+}
+
 void MainWindowApp::on_listWidget_itemDoubleClicked()
 {
 	m_noteSelected.show();

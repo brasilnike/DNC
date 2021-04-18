@@ -1,4 +1,4 @@
-// This C++ header is for Chilkat v9.5.0.85
+// This C++ header is for Chilkat v9.5.0.86
 // This source file is not generated.
 
 #if !defined(_CKSETTINGS_H_INCLUDED_)

@@ -1,4 +1,4 @@
-// This is a generated source file for Chilkat version 9.5.0.85
+// This is a generated source file for Chilkat version 9.5.0.86
 #ifndef _C_CkMailManWH
 #define _C_CkMailManWH
 #include "chilkatDefs.h"

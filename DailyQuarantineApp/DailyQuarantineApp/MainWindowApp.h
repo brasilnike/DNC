@@ -10,6 +10,7 @@
 #include "NoteSelected.h"
 #include "Database.h"
 #include "User.h"
+#include <Email.h>
 
 class MainWindowApp : public QWidget
 {
@@ -31,8 +32,14 @@ private slots:
 	void on_calendarButton_pressed();
 	void on_medicButton_pressed();
 	void on_covidButton_pressed();
+
+	void on_CalendarReturnButton_pressed();
 	void on_calendarWidget_clicked();
 	void on_addNoteButton_pressed();
+
+
+	void on_MedicReturnButton_pressed();
+	void on_SendEmailButton_pressed();
 
 	void on_listWidget_itemDoubleClicked();
 
@@ -46,6 +53,7 @@ private:
 	std::vector<Notes> m_listNotes;
 	User m_user;
 	int m_lastNoteIndex;
+	Email m_email;
 
 };
 

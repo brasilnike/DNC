@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// This header is generated for Chilkat 9.5.0.85
+// This header is generated for Chilkat 9.5.0.86
 
 #ifndef _CkCertStoreW_H
 #define _CkCertStoreW_H
@@ -80,6 +80,16 @@ class CK_VISIBLE_PUBLIC CkCertStoreW  : public CkWideCharBase
 	// store.
 	int get_NumEmailCerts(void);
 #endif
+
+	// Can be set to the PIN value for a certificate / private key stored on a smart
+	// card.
+	void get_SmartCardPin(CkString &str);
+	// Can be set to the PIN value for a certificate / private key stored on a smart
+	// card.
+	const wchar_t *smartCardPin(void);
+	// Can be set to the PIN value for a certificate / private key stored on a smart
+	// card.
+	void put_SmartCardPin(const wchar_t *newVal);
 
 
 
