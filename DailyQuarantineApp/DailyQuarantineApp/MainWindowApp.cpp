@@ -47,6 +47,7 @@ void MainWindowApp::on_covidButton_pressed()
 void MainWindowApp::on_gameButton_pressed()
 {
 	m_game.setStmt(m_sqlStmtHandle);
+	m_game.setUser(std::forward<User&&>(m_user));
 	m_game.show();
 	//close();
 }

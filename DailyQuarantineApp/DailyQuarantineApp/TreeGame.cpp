@@ -9,7 +9,6 @@ TreeGame::TreeGame(QWidget *parent)
 {
 	ui.setupUi(this);
     ui.stackedWidget->installEventFilter(this);
-    m_accDogs = m_user.getDogs();
 }
 
 TreeGame::~TreeGame()
@@ -34,6 +33,7 @@ void TreeGame::on_GameReturnButton_pressed()
 
 void TreeGame::updateCountdown()
 {
+    m_accDogs = m_user.getDogs();
 	time = time.addSecs(-1);
 	ui.time_remaining->setText(time.toString("mm:ss"));
     if (ui.time_remaining->text() == "19:59")
@@ -43,16 +43,10 @@ void TreeGame::updateCountdown()
         m_accDogs++;
         ui.catelusiContText->setText(QString::number(m_accDogs));
     }
-	if (ui.time_remaining->text() == "19:59")
-	{
-        time.setHMS(0, 20, 0);
-	}
 }
 
 void TreeGame::updateUserTable()
 {
-    SQLFreeStmt(m_stmt, SQL_CLOSE);
-
     std::string query_string = "UPDATE Users SET nr_dogs = ? WHERE user_id = ?";
     std::wstring  query_wstring(query_string.begin(), query_string.end());
     SQLWCHAR* SQLQuery = (SQLWCHAR*)query_wstring.c_str();
