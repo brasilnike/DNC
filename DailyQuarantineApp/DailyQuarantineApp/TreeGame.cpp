@@ -35,11 +35,12 @@ void TreeGame::updateCountdown()
 {
 	time = time.addSecs(-1);
 	ui.time_remaining->setText(time.toString("mm:ss"));
-    if (ui.time_remaining->text() == "19:59")
+    if (ui.time_remaining->text() == "00:01")
     {
         m_currDogs++;
         ui.catelusiText->setText(QString::number(m_currDogs));
         ui.catelusiContText->setText(QString::number(m_accDogs));
+        time.setHMS(0, 20, 0);
     }
 }
 
