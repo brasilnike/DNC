@@ -16,4 +16,7 @@ private:
 
 public:
 	Ui::NoteSelected getUi();
+
+private slots:
+	void on_backButton_pressed();
 };

@@ -13,14 +13,119 @@
   <property name="windowTitle">
    <string>NoteSelected</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget{
+	background-color:rgb(255, 126, 34);
+}
+
+QScrollBar:vertical {
+	border: none;
+    background:  rgb(255, 126, 34);
+    width: 14px;
+    margin: 15px 0 15px 0;
+	border-radius: 0px;
+ }
+
+/*  HANDLE BAR VERTICAL */
+QScrollBar::handle:vertical {	
+	background-color: rgb(80, 80, 122);
+	min-height: 30px;
+}
+QScrollBar::handle:vertical:hover{	
+	background-color: rgb(255, 0, 127);
+}
+QScrollBar::handle:vertical:pressed {	
+	background-color: rgb(185, 0, 92);
+}
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+	border: none;
+	background-color: rgb(59, 59, 90);
+	height: 15px;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical:hover {	
+	background-color: rgb(255, 0, 127);
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: rgb(185, 0, 92);
+}
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	border: none;
+	background-color: rgb(59, 59, 90);
+	height: 15px;
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+}
+QScrollBar::add-line:vertical:hover {	
+	background-color: rgb(255, 0, 127);
+}
+QScrollBar::add-line:vertical:pressed {	
+	background-color: rgb(185, 0, 92);
+}
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none;
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
+}
+
+QScrollBar:horizontal {
+   border: none;
+    background: rgb(45, 45, 68);
+    width: 14px;
+    margin: 15px 0 15px 0;
+	border-radius: 0px;
+}
+QScrollBar::handle:horizontal {
+    background-color: rgb(80, 80, 122);
+	min-height: 30px;
+	border-radius: 7px;
+}
+QScrollBar::add-line:horizontal {
+    border: none;
+	background-color: rgb(59, 59, 90);
+	height: 15px;
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+}
+</string>
+  </property>
   <widget class="QPushButton" name="backButton">
    <property name="geometry">
     <rect>
-     <x>670</x>
-     <y>560</y>
-     <width>111</width>
-     <height>61</height>
+     <x>450</x>
+     <y>550</y>
+     <width>331</width>
+     <height>71</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Black</family>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: white;
+border-style:outset;
+border-radius:10px;
+border-color:black;
+padding 20px;</string>
    </property>
    <property name="text">
     <string>Back to calendar</string>
@@ -29,11 +134,22 @@
   <widget class="QLabel" name="noteIdLabel">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>90</y>
-     <width>81</width>
-     <height>31</height>
+     <x>90</x>
+     <y>110</y>
+     <width>141</width>
+     <height>51</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Black</family>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>Note id:</string>
@@ -42,11 +158,22 @@
   <widget class="QLabel" name="noteIdText">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>100</y>
+     <x>230</x>
+     <y>80</y>
      <width>421</width>
      <height>111</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Black</family>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>Note id:</string>
@@ -55,11 +182,22 @@
   <widget class="QLabel" name="noteTitleLabel">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>240</y>
-     <width>81</width>
-     <height>31</height>
+     <x>90</x>
+     <y>190</y>
+     <width>271</width>
+     <height>81</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Black</family>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>Note title:</string>
@@ -68,11 +206,22 @@
   <widget class="QLabel" name="noteTitleText">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>250</y>
+     <x>270</x>
+     <y>190</y>
      <width>371</width>
      <height>81</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Black</family>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>Note title:</string>
@@ -81,11 +230,22 @@
   <widget class="QLabel" name="noteTextLabel">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>360</y>
-     <width>81</width>
-     <height>31</height>
+     <x>90</x>
+     <y>290</y>
+     <width>231</width>
+     <height>61</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Black</family>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>Note text:</string>
@@ -94,11 +254,22 @@
   <widget class="QLabel" name="noteTextText">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>370</y>
+     <x>270</x>
+     <y>280</y>
      <width>481</width>
-     <height>111</height>
+     <height>91</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Black</family>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>Note text:</string>
@@ -107,11 +278,22 @@
   <widget class="QLabel" name="noteDateLabel">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>500</y>
-     <width>81</width>
-     <height>31</height>
+     <x>80</x>
+     <y>380</y>
+     <width>291</width>
+     <height>51</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Black</family>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>Note date:</string>
@@ -120,11 +302,22 @@
   <widget class="QLabel" name="noteDateText">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>510</y>
+     <x>260</x>
+     <y>380</y>
      <width>331</width>
-     <height>31</height>
+     <height>51</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Black</family>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>Note date:</string>
