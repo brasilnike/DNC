@@ -29,7 +29,8 @@ protected:
 private:
 	//void setupUI();
 	//QStackedWidget* stackedWidget;
-	
+	int m_accDogs = 0;
+	int m_currDogs = 0;
 
 private slots:
 	void on_startGameButton_pressed();

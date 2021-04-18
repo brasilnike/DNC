@@ -3,6 +3,7 @@
 #include <ctime>
 #include <QTime>
 #include <QTimer>
+#include <qpainter.h>
 TreeGame::TreeGame(QWidget *parent)
 	: QWidget(parent)
 {
@@ -22,9 +23,16 @@ void TreeGame::updateCountdown()
 {
 	time = time.addSecs(-1);
 	ui.time_remaining->setText(time.toString("mm:ss"));
-	if (ui.time_remaining->text() == "00:01")
+    if (ui.time_remaining->text() == "19:59")
+    {
+        m_currDogs++;
+        ui.catelusiText->setText(QString::number(m_currDogs));
+        m_accDogs++;
+        ui.catelusiContText->setText(QString::number(m_accDogs));
+    }
+	if (ui.time_remaining->text() == "19:59")
 	{
-		timer->stop();
+        time.setHMS(0, 20, 0);
 	}
 }
 
