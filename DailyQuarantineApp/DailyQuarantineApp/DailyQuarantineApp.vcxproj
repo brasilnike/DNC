@@ -109,7 +109,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CovidPopUp.cpp" />
     <ClCompile Include="Database.cpp" />
     <ClCompile Include="Email.cpp" />
     <ClCompile Include="MainWindowApp.cpp" />
@@ -117,18 +116,15 @@
     <ClCompile Include="Notes.cpp" />
     <ClCompile Include="NoteSelected.cpp" />
     <ClCompile Include="PasswordHash.cpp" />
-    <ClCompile Include="test.cpp" />
     <ClCompile Include="TreeGame.cpp" />
     <ClCompile Include="User.cpp" />
     <QtRcc Include="DailyQuarantineApp.qrc" />
-    <QtUic Include="CovidPopUp.ui" />
     <QtUic Include="DailyQuarantineApp.ui" />
     <QtMoc Include="DailyQuarantineApp.h" />
     <ClCompile Include="DailyQuarantineApp.cpp" />
     <ClCompile Include="main.cpp" />
     <QtUic Include="MainWindowApp.ui" />
     <QtUic Include="NoteSelected.ui" />
-    <QtUic Include="test.ui" />
     <QtUic Include="TreeGame.ui" />
   </ItemGroup>
   <ItemGroup>
@@ -138,13 +134,11 @@
     <QtMoc Include="TreeGame.h" />
     <ClInclude Include="PasswordHash.h" />
     <ClInclude Include="User.h" />
-    <QtMoc Include="CovidPopUp.h" />
     <ClInclude Include="Database.h" />
     <ClInclude Include="Email.h" />
     <ClInclude Include="Networking.h" />
     <ClInclude Include="Notes.h" />
     <QtMoc Include="NoteSelected.h" />
-    <QtMoc Include="test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
