@@ -58,7 +58,9 @@ private:
 	void insertNote(const Notes& note);
 	void getAllNotes();
 	void statistics();
-	std::string connectionCurl();
+	std::string connectionCurl(std::string url);
+	void jsonCovidUI(QJsonDocument json_doc);
+	void jsonVaccinesUI(QJsonDocument json_doc);
 
 private:
 	SQLHANDLE m_sqlStmtHandle;
