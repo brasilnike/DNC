@@ -21,7 +21,7 @@ private:
     QString m_username;
     QString m_password;
     Database database;
-    CovidPopUp m_covidFrame;
+    //CovidPopUp m_covidFrame;
     TreeGame m_treeGameFrame;
 
 protected:

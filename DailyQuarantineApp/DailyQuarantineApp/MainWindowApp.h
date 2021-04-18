@@ -11,6 +11,14 @@
 #include "Database.h"
 #include "User.h"
 #include <Email.h>
+#include "curl/curl.h"
+#include <fstream>
+#include <qfile.h>
+#include <QJsonDocument>
+#include <QJsonValue>
+#include <QJsonArray>
+#include <QJsonObject>
+
 
 class MainWindowApp : public QWidget
 {
@@ -46,6 +54,7 @@ private slots:
 private:
 	void insertNote(const Notes& note);
 	void getAllNotes();
+	void statistics();
 
 private:
 	SQLHANDLE m_sqlStmtHandle;
