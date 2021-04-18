@@ -25,19 +25,21 @@ public:
 
 public:
 	void setStmt(const SQLHANDLE& stmt);
-	void setUser(User&& user);
+	void setUser(User user);
 
 private:
 	Ui::TreeGame ui;
 
 protected:
 	bool eventFilter(QObject* watched, QEvent* event);
+	void showEvent(QShowEvent* ev);
 
 private:
 	int m_accDogs;
 	int m_currDogs = 0;
 	SQLHANDLE m_stmt;
 	User m_user;
+	bool cheated = false;
 
 private slots:
 	void on_startGameButton_pressed();
